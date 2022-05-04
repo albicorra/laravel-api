@@ -7,6 +7,7 @@
     
         @foreach ($posts as $post)
             <h3>{{$post['title']}}</h3>
+            <a href="{{route('admin.posts.edit', $post)}}" class="btn btn-danger ">Modifica</a>
         @endforeach
     </div>
 
