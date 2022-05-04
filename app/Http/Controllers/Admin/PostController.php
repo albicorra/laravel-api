@@ -47,23 +47,10 @@ class PostController extends Controller
 
         $data = $request->all();
         
-        $slug = Str::slug($data['title'], '-');
-        $base_slug = $slug;
-        $slug_present = Post::where('slug', $slug)->first();
-        $counter = 1;
-
-        while ($slug_present) {
-            # code...\
-            $slug = $base_slug . '-' . $counter;
-            $counter++;
-            $slug_present = Post::where('slug',$slug)->first();
-
-        };
+        $slug = Post::getSlug($data['title']);
         
         $data['slug'] = $slug;
-        
-        
-        
+
         $post = new Post;
         $post->fill($data);
         $post->save();
@@ -109,19 +96,8 @@ class PostController extends Controller
         ]);
 
         $data = $request->all();
-        
-        $slug = Str::slug($data['title'], '-');
-        $base_slug = $slug;
-        $slug_present = Post::where('slug', $slug)->first();
-        $counter = 1;
 
-        while ($slug_present) {
-            # code...\
-            $slug = $base_slug . '-' . $counter;
-            $counter++;
-            $slug_present = Post::where('slug',$slug)->first();
-
-        };
+        $slug = Post::getSlug($data['title']);
         
         $data['slug'] = $slug;
 
