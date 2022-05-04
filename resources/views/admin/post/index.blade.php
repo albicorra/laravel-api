@@ -13,7 +13,14 @@
                   <h6 class="card-subtitle mb-2 text-muted">{{$post->slug}}</h6>
                   <p class="card-text">{{$post->content}}</p>
                   <a href="{{route('admin.posts.edit', $post)}}" class="card-link">Modifica</a>
-                  <a href="{{route('admin.posts.delete', $post)}}" class="card-link">Cancella</a>
+                  <form class="d-inline" action="{{route('admin.posts.destroy', $post/* [ 'comic' => $post->id ] */)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-link">
+                        Cancella
+                    </button>
+                </form>
                 </div>
               </div>
             @endforeach
