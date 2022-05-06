@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with('category')->orderBy('created_at', 'desc')->limit(20)->get();
 
         return view('admin.post.index', compact('posts'));
     }
@@ -28,7 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        $categories = Category::all();
+
+        return view('admin.post.create', compact('categories'));
     }
 
     /**
@@ -41,6 +44,7 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required | string | max:150',
+            'categories_id' => 'nullable | exists:categories,id',
             'content' => 'required | string',
             'published_at' => 'nullable | date | before_or_equal:today'
         ]);
