@@ -13,7 +13,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{$post->title}}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">{{$post->slug}}</h6>
-                  <p class="card-text">{{-- {{$post->category ? $post->category->name : '-'}} --}}@dump($post->category)</p>
+                  <p class="card-text">{{$post->category ? $post->category->name : '-'}}{{-- @dump($post->category) --}}</p>
                   <p class="card-text">{{$post->content}}</p>
                   <a href="{{route('admin.posts.edit', $post)}}" class="card-link">Modifica</a>
                   <form class="d-inline" action="{{route('admin.posts.destroy', $post)}}" method="POST">
