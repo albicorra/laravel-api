@@ -19,6 +19,10 @@ class Post extends Model
         return $this->belongsTo('App\Category', 'categories_id');
     }
 
+    public function tags() {
+        return $this->belongsToMany('App\Tag');
+    }
+
     public static function getSlug ($title) {
         $slug = Str::slug($title, '-');
         $base_slug = $slug;
