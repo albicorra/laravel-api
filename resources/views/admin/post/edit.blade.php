@@ -20,7 +20,7 @@
                 <select class="custom-select custom-select-lg mb-3 @error('categories_id') is-invalid @enderror" name="categories_id">
                     <option selected value="">-- seleziona categoria --</option>
                     @foreach ($categories as $category)
-                        <option {{old($category->id, /* optional($post->category->id) */) == $category->id ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
+                        <option {{old($category->id, optional($post->category)->id) == $category->id ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
                 @error('categories_id')

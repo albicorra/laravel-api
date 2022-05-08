@@ -16,7 +16,7 @@ class Post extends Model
     ];
 
     public function category() {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Category', 'categories_id');
     }
 
     public static function getSlug ($title) {
