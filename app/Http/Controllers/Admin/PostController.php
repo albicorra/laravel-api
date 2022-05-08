@@ -58,16 +58,17 @@ class PostController extends Controller
         
         $data['slug'] = $slug;
 
+        
+        
+        $post = new Post;
+        $post->fill($data);
+        $post->save();
+        
         if (array_key_exists('tags', $data)) {
             $post->tags()->attach($data['tags']);
         } else {
             $post->tags()->attach([]);
         }
-
-
-        $post = new Post;
-        $post->fill($data);
-        $post->save();
 
         return redirect()->route('admin.posts.index');
     }
