@@ -17,15 +17,27 @@
             @enderror
 
             <label for="categories_id">Genere</label>
-                <select class="custom-select custom-select-lg mb-3 @error('categories_id') is-invalid @enderror" name="categories_id">
-                    <option selected value="">-- seleziona categoria --</option>
-                    @foreach ($categories as $category)
-                        <option {{old($category->id, optional($post->category)->id) == $category->id ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
-                    @endforeach
-                </select>
-                @error('categories_id')
-                    <div class="invalid-feedback">{{$message}}</div>
+            <select class="custom-select custom-select-lg mb-3 @error('categories_id') is-invalid @enderror" name="categories_id">
+                <option selected value="">-- seleziona categoria --</option>
+                @foreach ($categories as $category)
+                    <option {{old($category->id, optional($post->category)->id) == $category->id ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+            @error('categories_id')
+                <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+
+            <div class="my-2">       
+                @foreach ($tags as $tag)  
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" {{$post->tags->contains($tag) ? 'checked' : ''}} type="checkbox" name="tags[]" id="tags-{{$tag->id}}" value="{{$tag->id}}">
+                        <label class="form-check-label" for="inlineCheckbox1">{{$tag->name}}</label>
+                    </div>
+                @endforeach
+                @error('tags')
+                    <div class="text-danger">{{ $message }}</div>
                 @enderror
+            </div>
 
             <label for="content">Contenuto</label>
             <textarea class="form-control" id="FormControlTextarea1" name="content" rows="3" placeholder="Inserisci il contenuto del post">{{old('content') ?: $post->content }} </textarea>

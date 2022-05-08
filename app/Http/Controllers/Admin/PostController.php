@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -17,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category')->orderBy('created_at', 'desc')->limit(20)->get();
+        $posts = Post::with(['category', 'tags'])->orderBy('created_at', 'desc')->limit(20)->get();
 
         return view('admin.post.index', compact('posts'));
     }
@@ -30,8 +31,9 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.post.create', compact('categories'));
+        return view('admin.post.create', compact('categories', 'tags'));
     }
 
     /**
@@ -82,8 +84,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.post.edit', compact('post', 'categories'));
+        return view('admin.post.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -99,11 +102,12 @@ class PostController extends Controller
             'title' => 'required | string | max:150',
             'categories_id' => 'nullable | exists:categories,id',
             'content' => 'required | string',
-            'published_at' => 'nullable | date | before_or_equal:today'
+            'published_at' => 'nullable | date | before_or_equal:today',
+            'tags' => 'exists:categories,id',
         ]);
 
         $data = $request->all();
-
+        
         $slug = Post::getSlug($data['title']);
         
         $data['slug'] = $slug;

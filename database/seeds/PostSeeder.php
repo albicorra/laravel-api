@@ -31,7 +31,7 @@ class PostSeeder extends Seeder
             $post->content = $faker->paragraph(10, true);
             $post->slug = Str::slug($post->title, '-');
             $post->published_at = $faker->optional()->dateTime();
-            $post->category_id = $faker->optional()->randomElement($categoriesId);
+            $post->categories_id = $faker->optional()->randomElement($categoriesId);
             
             $randomTags = $faker->randomElements($tagsId, 2);
 

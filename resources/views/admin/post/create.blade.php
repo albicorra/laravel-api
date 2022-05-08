@@ -25,6 +25,13 @@
                     <div class="invalid-feedback">{{$message}}</div>
                 @enderror
 
+                @foreach ($tags as $tag)  
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="tags[]" id="tags-{{$tag->id}}" value="{{$tag->id}}">
+                        <label class="form-check-label" for="inlineCheckbox1">{{$tag->name}}</label>
+                    </div>
+                @endforeach
+
                 <label for="content">Contenuto</label>
                 <textarea class="form-control" id="FormControlTextarea1" name="content" rows="3" placeholder="Inserisci il contenuto del post">{{old('content')}}</textarea>
                 @error('content')
