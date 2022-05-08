@@ -42,13 +42,14 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
         $request->validate([
             'title' => 'required | string | max:150',
             'categories_id' => 'nullable | exists:categories,id',
             'content' => 'required | string',
-            'published_at' => 'nullable | date | before_or_equal:today'
+            'published_at' => 'nullable | date | before_or_equal:today',
+            'tags' => 'exists:categories,id',
         ]);
 
         $data = $request->all();
@@ -56,6 +57,13 @@ class PostController extends Controller
         $slug = Post::getSlug($data['title']);
         
         $data['slug'] = $slug;
+
+        if (array_key_exists('tags', $data)) {
+            $post->tags()->attach($data['tags']);
+        } else {
+            $post->tags()->attach([]);
+        }
+
 
         $post = new Post;
         $post->fill($data);
@@ -107,10 +115,16 @@ class PostController extends Controller
         ]);
 
         $data = $request->all();
-        
+
         $slug = Post::getSlug($data['title']);
         
         $data['slug'] = $slug;
+
+        if (array_key_exists('tags', $data)) {
+            $post->tags()->sync($data['tags']);
+        } else {
+            $post->tags()->sync([]);
+        }
 
         $post->update($data);
         return redirect()->route('admin.posts.index');

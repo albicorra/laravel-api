@@ -30,6 +30,9 @@
                         <input class="form-check-input" type="checkbox" name="tags[]" id="tags-{{$tag->id}}" value="{{$tag->id}}">
                         <label class="form-check-label" for="inlineCheckbox1">{{$tag->name}}</label>
                     </div>
+                    @error('tags')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 @endforeach
 
                 <label for="content">Contenuto</label>

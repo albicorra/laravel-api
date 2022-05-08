@@ -40,7 +40,7 @@
             </div>
 
             <label for="content">Contenuto</label>
-            <textarea class="form-control" id="FormControlTextarea1" name="content" rows="3" placeholder="Inserisci il contenuto del post">{{old('content') ?: $post->content }} </textarea>
+            <textarea class="form-control @error('content') is-invalid @enderror" id="FormControlTextarea1" name="content" rows="3" placeholder="Inserisci il contenuto del post">{{old('content') ?: $post->content }} </textarea>
             @error('content')
                 <div class="invalid-feedback">{{$message}}</div>
             @enderror
