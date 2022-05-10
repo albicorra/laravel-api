@@ -1934,6 +1934,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PostCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCard.vue */ "./resources/js/components/PostCard.vue");
 //
 //
 //
@@ -1965,25 +1966,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    PostCard: _PostCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
+  methods: {
+    fetchPost: function fetchPost() {
+      var _this = this;
+
+      axios.get('/api/posts').then(function (res) {
+        _this.posts = res.data.posts;
+        console.log(_this.posts);
+      })["catch"](function (err) {
+        console.warn(err);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.fetchPost();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCard.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCard.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -2004,7 +2024,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Post'
+  name: 'PostCard',
+  props: {
+    type: Object,
+    require: false
+  }
 });
 
 /***/ }),
@@ -2550,260 +2574,91 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass:
+          "container mx-auto my-32 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10",
+      },
+      _vm._l(_vm.posts, function (post) {
+        return _c("PostCard", { key: post.id, attrs: { post: post } })
+      }),
+      1
+    ),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        {
-          staticClass:
-            "container mx-auto my-32 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10",
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "p-10 flex justify-content overflow-hidden items-center shadow-xl rounder",
-            },
-            [
-              _c("img", { attrs: { src: "w-full", alt: "" } }),
-              _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "py-1 font-bold text-xl" }, [
-                  _vm._v("Questo é il titolo di un SuperPost"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pb-5 text-lg font-semibold" }, [
-                  _vm._v("Avventura"),
-                ]),
-                _vm._v(" "),
-                _c("div", {}, [
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Riciclato")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Nuova edizione")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-base" }, [
-                  _vm._v(
-                    "Vitae dolorem accusantium aspernatur ducimus praesentium nobis. Quo non labore possimus consequatur nostrum. Repellat quia libero voluptatem explicabo. Nam consequuntur esse odit temporibus. Similique dolorem omnis repellat rem. Occaecati ad vel nisi qui. Eos et qui ducimus rerum earum facilis blanditiis. Eos perspiciatis beatae voluptate sed molestiae. Est dolore consequuntur quis iure voluptates repellat nisi accusamus. Consequatur vel distinctio est veritatis sequi asperiores expedita."
-                  ),
-                ]),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "p-10 flex justify-content overflow-hidden items-center shadow-xl rounder",
-            },
-            [
-              _c("img", { attrs: { src: "w-full", alt: "" } }),
-              _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "py-1 font-bold text-xl" }, [
-                  _vm._v("Questo é il titolo di un SuperPost"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pb-5 text-lg font-semibold" }, [
-                  _vm._v("Avventura"),
-                ]),
-                _vm._v(" "),
-                _c("div", {}, [
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Riciclato")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Nuova edizione")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-base" }, [
-                  _vm._v(
-                    "Vitae dolorem accusantium aspernatur ducimus praesentium nobis. Quo non labore possimus consequatur nostrum. Repellat quia libero voluptatem explicabo. Nam consequuntur esse odit temporibus. Similique dolorem omnis repellat rem. Occaecati ad vel nisi qui. Eos et qui ducimus rerum earum facilis blanditiis. Eos perspiciatis beatae voluptate sed molestiae. Est dolore consequuntur quis iure voluptates repellat nisi accusamus. Consequatur vel distinctio est veritatis sequi asperiores expedita."
-                  ),
-                ]),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "p-10 flex justify-content overflow-hidden items-center shadow-xl rounder",
-            },
-            [
-              _c("img", { attrs: { src: "w-full", alt: "" } }),
-              _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "py-1 font-bold text-xl" }, [
-                  _vm._v("Questo é il titolo di un SuperPost"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pb-5 text-lg font-semibold" }, [
-                  _vm._v("Avventura"),
-                ]),
-                _vm._v(" "),
-                _c("div", {}, [
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Riciclato")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Nuova edizione")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-base" }, [
-                  _vm._v(
-                    "Vitae dolorem accusantium aspernatur ducimus praesentium nobis. Quo non labore possimus consequatur nostrum. Repellat quia libero voluptatem explicabo. Nam consequuntur esse odit temporibus. Similique dolorem omnis repellat rem. Occaecati ad vel nisi qui. Eos et qui ducimus rerum earum facilis blanditiis. Eos perspiciatis beatae voluptate sed molestiae. Est dolore consequuntur quis iure voluptates repellat nisi accusamus. Consequatur vel distinctio est veritatis sequi asperiores expedita."
-                  ),
-                ]),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "p-10 flex justify-content overflow-hidden items-center shadow-xl rounder",
-            },
-            [
-              _c("img", { attrs: { src: "w-full", alt: "" } }),
-              _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "py-1 font-bold text-xl" }, [
-                  _vm._v("Questo é il titolo di un SuperPost"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pb-5 text-lg font-semibold" }, [
-                  _vm._v("Avventura"),
-                ]),
-                _vm._v(" "),
-                _c("div", {}, [
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Riciclato")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Nuova edizione")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-base" }, [
-                  _vm._v(
-                    "Vitae dolorem accusantium aspernatur ducimus praesentium nobis. Quo non labore possimus consequatur nostrum. Repellat quia libero voluptatem explicabo. Nam consequuntur esse odit temporibus. Similique dolorem omnis repellat rem. Occaecati ad vel nisi qui. Eos et qui ducimus rerum earum facilis blanditiis. Eos perspiciatis beatae voluptate sed molestiae. Est dolore consequuntur quis iure voluptates repellat nisi accusamus. Consequatur vel distinctio est veritatis sequi asperiores expedita."
-                  ),
-                ]),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "p-10 flex justify-content overflow-hidden items-center shadow-xl rounder",
-            },
-            [
-              _c("img", { attrs: { src: "w-full", alt: "" } }),
-              _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "py-1 font-bold text-xl" }, [
-                  _vm._v("Questo é il titolo di un SuperPost"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pb-5 text-lg font-semibold" }, [
-                  _vm._v("Avventura"),
-                ]),
-                _vm._v(" "),
-                _c("div", {}, [
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Riciclato")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
-                    },
-                    [_vm._v("Nuova edizione")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-base" }, [
-                  _vm._v(
-                    "Vitae dolorem accusantium aspernatur ducimus praesentium nobis. Quo non labore possimus consequatur nostrum. Repellat quia libero voluptatem explicabo. Nam consequuntur esse odit temporibus. Similique dolorem omnis repellat rem. Occaecati ad vel nisi qui. Eos et qui ducimus rerum earum facilis blanditiis. Eos perspiciatis beatae voluptate sed molestiae. Est dolore consequuntur quis iure voluptates repellat nisi accusamus. Consequatur vel distinctio est veritatis sequi asperiores expedita."
-                  ),
-                ]),
-              ]),
-            ]
-          ),
-        ]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCard.vue?vue&type=template&id=1324358a&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCard.vue?vue&type=template&id=1324358a&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "p-10 flex justify-content overflow-hidden items-center shadow-xl rounder",
+    },
+    [
+      _c("img", { attrs: { src: "w-full", alt: "" } }),
+      _vm._v(" "),
+      _c("div", [
+        _c("div", { staticClass: "py-1 font-bold text-xl" }, [
+          _vm._v(_vm._s(_vm.post.title)),
+        ]),
+        _vm._v(" "),
+        _vm.post.category
+          ? _c("div", { staticClass: "pb-5 text-lg font-semibold" }, [
+              _vm._v(_vm._s(_vm.post.category.name)),
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "div",
+          {},
+          _vm._l(_vm.post.tag, function (tag) {
+            return _c(
+              "span",
+              {
+                key: tag.id,
+                staticClass:
+                  "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
+              },
+              [
+                _vm._v(
+                  "\n                " + _vm._s(tag.name) + "\n            "
+                ),
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-base" }, [
+          _vm._v(_vm._s(_vm.post.content)),
+        ]),
+      ]),
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -15155,6 +15010,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Post_vue_vue_type_template_id_5e8280ea_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Post_vue_vue_type_template_id_5e8280ea_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PostCard.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/PostCard.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PostCard_vue_vue_type_template_id_1324358a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCard.vue?vue&type=template&id=1324358a&scoped=true& */ "./resources/js/components/PostCard.vue?vue&type=template&id=1324358a&scoped=true&");
+/* harmony import */ var _PostCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostCard.vue?vue&type=script&lang=js& */ "./resources/js/components/PostCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PostCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PostCard_vue_vue_type_template_id_1324358a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PostCard_vue_vue_type_template_id_1324358a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "1324358a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PostCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/PostCard.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/PostCard.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/PostCard.vue?vue&type=template&id=1324358a&scoped=true&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/PostCard.vue?vue&type=template&id=1324358a&scoped=true& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCard_vue_vue_type_template_id_1324358a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCard.vue?vue&type=template&id=1324358a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCard.vue?vue&type=template&id=1324358a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCard_vue_vue_type_template_id_1324358a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCard_vue_vue_type_template_id_1324358a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
