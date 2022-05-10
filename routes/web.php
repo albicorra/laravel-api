@@ -27,3 +27,8 @@ Route::prefix('admin')->namespace('Admin')->middleware('auth')->name('admin.')->
     
 });
 
+
+
+Route::fallback(function () {
+    return view('guest.home');
+});
