@@ -21,3 +21,19 @@ a{
 input, select:focus-visible{
     outline: none;
 }
+
+.pages{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+
+    .page{
+        width: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        cursor: pointer;
+    }
+}

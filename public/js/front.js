@@ -1966,6 +1966,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1973,16 +1986,25 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      currentPage: 1,
+      lastPage: 0
     };
   },
   methods: {
     fetchPost: function fetchPost() {
       var _this = this;
 
-      axios.get('/api/posts').then(function (res) {
-        _this.posts = res.data.posts;
-        console.log(_this.posts);
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('/api/posts', {
+        params: {
+          page: page
+        }
+      }).then(function (res) {
+        _this.posts = res.data.posts.data;
+        _this.currentPage = res.data.posts.current_page;
+        _this.lastPage = res.data.posts.last_page;
+        console.log(_this.currentPage);
       })["catch"](function (err) {
         console.warn(err);
       });
@@ -2575,17 +2597,92 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass:
-          "container mx-auto my-32 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10",
-      },
-      _vm._l(_vm.posts, function (post) {
-        return _c("PostCard", { key: post.id, attrs: { post: post } })
-      }),
-      1
-    ),
+    _c("div", { staticClass: "container mx-auto " }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "my-32 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10",
+        },
+        _vm._l(_vm.posts, function (post) {
+          return _c(
+            "div",
+            {
+              key: post.id,
+              staticClass:
+                "p-10 flex justify-content overflow-hidden shadow-xl rounder bg-white",
+            },
+            [
+              _c("img", { attrs: { src: "w-full", alt: "" } }),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "py-1 font-bold text-xl" }, [
+                  _vm._v(_vm._s(post.title)),
+                ]),
+                _vm._v(" "),
+                post.category
+                  ? _c("div", { staticClass: "text-lg font-semibold" }, [
+                      _vm._v(_vm._s(post.category.name)),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "mt-5" },
+                  _vm._l(post.tags, function (tag) {
+                    return _c(
+                      "span",
+                      {
+                        key: tag.id,
+                        staticClass:
+                          "inline-block bg-cyan-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2",
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(tag.name) +
+                            "\n                        "
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-base mt-3" }, [
+                  _vm._v(_vm._s(post.content)),
+                ]),
+              ]),
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "pages" },
+        _vm._l(_vm.lastPage, function (n) {
+          return _c(
+            "span",
+            {
+              key: n,
+              class: [
+                _vm.currentPage === n ? "bg-violet-400" : "bg-blue-400",
+                "page hover:bg-violet-400",
+              ],
+              on: {
+                click: function ($event) {
+                  return _vm.fetchPost(n)
+                },
+              },
+            },
+            [_vm._v("\n                " + _vm._s(n) + "\n            ")]
+          )
+        }),
+        0
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -2682,6 +2779,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "bg-gradient-to-r from-green-200 to-blue-300" },
     [
       _c("header", [_vm._v("\n        Inizio SuperPost progetto\n    ")]),
       _vm._v(" "),

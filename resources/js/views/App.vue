@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-gradient-to-r from-green-200 to-blue-300">
         <header>
             Inizio SuperPost progetto
         </header>
