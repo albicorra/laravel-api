@@ -23,6 +23,13 @@
                             </span>
                         </div>
                         <p class="text-base mt-3">{{post.content}}</p>
+
+                        <router-link
+                        tag="div" 
+                        :to="{ name: 'post.show', params: {slug: post.slug} }" 
+                        class="bg-teal-300 text-center rounded-full py-2 my-3 cursor-pointer">
+                            Visualizza
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -43,7 +50,7 @@
 </template>
 
 <script>
-import PostCard from "./PostCard.vue"
+import PostCard from '../components/PostCard.vue'
 
     export default {
         components: {

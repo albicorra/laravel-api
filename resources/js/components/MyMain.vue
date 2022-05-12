@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Post from "./Post.vue"
+    import Post from '../pages/Post.vue'
 
     export default {
         name: 'MyMain',

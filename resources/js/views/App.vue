@@ -1,13 +1,13 @@
 <template>
     <div class="bg-gradient-to-r from-green-200 to-blue-300">
         <header>
-            Inizio SuperPost progetto
+            Inizio SuperPost
         </header>
 
         <router-view></router-view>
 
         <footer>
-            Fine SuperPost progetto
+            Fine SuperPost
         </footer>
     </div>
 </template>
