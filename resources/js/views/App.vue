@@ -4,7 +4,7 @@
             Inizio SuperPost progetto
         </header>
 
-        <MyMain/>
+        <router-view></router-view>
 
         <footer>
             Fine SuperPost progetto

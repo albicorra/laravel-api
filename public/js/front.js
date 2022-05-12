@@ -2783,7 +2783,7 @@ var render = function () {
     [
       _c("header", [_vm._v("\n        Inizio SuperPost progetto\n    ")]),
       _vm._v(" "),
-      _c("MyMain"),
+      _c("router-view"),
       _vm._v(" "),
       _c("footer", [_vm._v("\n        Fine SuperPost progetto\n    ")]),
     ],
@@ -15192,16 +15192,30 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/App.vue */ "./resources/js/views/App.vue");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
 
 var app = new Vue({
   el: '#app',
   render: function render(h) {
     return h(_views_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  }
+  },
+  router: _router__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
+
+/***/ }),
+
+/***/ "./resources/js/router/index.js":
+/*!**************************************!*\
+  !*** ./resources/js/router/index.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\resources\\js\\router\\index.js: Unexpected token (14:0)\n\n\u001b[0m \u001b[90m 12 |\u001b[39m \u001b[90m] */\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m \u001b[36mconst\u001b[39m router \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mVueRouter\u001b[39m({\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m     mode\u001b[33m:\u001b[39m \u001b[32m'history'\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m     routes\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 17 |\u001b[39m })\u001b[0m\n    at instantiate (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:358:12)\n    at Parser.raise (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:3335:19)\n    at Parser.unexpected (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:3373:16)\n    at Parser.parseExprAtom (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:13015:22)\n    at Parser.parseExprSubscripts (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12540:23)\n    at Parser.parseUpdate (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12519:21)\n    at Parser.parseMaybeUnary (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12490:23)\n    at Parser.parseMaybeUnaryOrPrivate (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12284:61)\n    at Parser.parseExprOps (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12291:23)\n    at Parser.parseMaybeConditional (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12261:23)\n    at Parser.parseMaybeAssign (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12214:21)\n    at E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12172:39\n    at Parser.allowInAnd (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:14242:12)\n    at Parser.parseMaybeAssignAllowIn (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12172:17)\n    at Parser.parseExprListItem (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:13947:18)\n    at Parser.parseExprList (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:13912:22)\n    at Parser.parseArrayLike (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:13790:26)\n    at Parser.parseExprAtom (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12879:23)\n    at Parser.parseExprSubscripts (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12540:23)\n    at Parser.parseUpdate (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12519:21)\n    at Parser.parseMaybeUnary (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12490:23)\n    at Parser.parseMaybeUnaryOrPrivate (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12284:61)\n    at Parser.parseExprOps (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12291:23)\n    at Parser.parseMaybeConditional (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12261:23)\n    at Parser.parseMaybeAssign (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12214:21)\n    at E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12172:39\n    at Parser.allowInAnd (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:14236:16)\n    at Parser.parseMaybeAssignAllowIn (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:12172:17)\n    at Parser.parseVar (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:15264:91)\n    at Parser.parseVarStatement (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:15066:10)\n    at Parser.parseStatementContent (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:14608:21)\n    at Parser.parseStatement (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:14533:17)\n    at Parser.parseBlockOrModuleBlockBody (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:15176:25)\n    at Parser.parseBlockBody (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:15167:10)\n    at Parser.parseProgram (E:\\boolean\\progetti-boolean\\laravel-many-to-many-1\\node_modules\\@babel\\parser\\lib\\index.js:14451:10)");
 
 /***/ }),
 
